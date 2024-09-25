@@ -1,0 +1,67 @@
+
+
+a) x = 10
+O valor de x foi inicializado como 10.
+
+b) *py = 5.9
+O valor apontado por py é o valor de y, que é 5.9.
+
+c) px = 6DFEEC
+px armazena o endereço de x, que é 6DFEEC.
+
+d) &y = 6DFEE0
+O endereço de y é 6DFEE0.
+
+e) *px = 10
+O valor apontado por px é o valor de x, que é 10.
+
+f) y = 5.9
+O valor de y foi inicializado como 5.9.
+
+g) **ppx = 10
+ppx aponta para px, e px aponta para x. Logo, o valor de **ppx é 10.
+
+h) py = 6DFEE0
+py armazena o endereço de y, que é 6DFEE0.
+
+i) &x = 6DFEEC
+O endereço de x é 6DFEEC.
+
+j) py + 1 = 6DFEE4
+Como py é um ponteiro para float (que ocupa 4 bytes), incrementando py por 1 resulta em 6DFEE0 + 4 = 6DFEE4.
+
+k) px - 1 = 6DFEE8
+px é um ponteiro para int (que também ocupa 4 bytes), e decrementá-lo por 1 resulta em 6DFEEC - 4 = 6DFEE8.
+
+l) **ppy = 5.9
+ppy aponta para py, que por sua vez aponta para y. Logo, o valor de **ppy é 5.9.
+
+m) &ppy = 6DFED8
+O endereço de ppy é 6DFED8.
+
+n) *&px = 6DFEEC
+*&px retorna o valor de px, que é 6DFEEC.
+
+o) (**ppx) + 1 = 11
+**ppx é o valor de x (10), e somando 1 resulta em 11.
+
+p) px + 1 = 6DFEF0
+Incrementar o ponteiro px (que é do tipo int*) por 1 resulta em 6DFEEC + 4 = 6DFEF0.
+
+q) &ppx = 6DFEE4
+O endereço de ppx é 6DFEE4.
+
+r) &ppy = 6DFED8
+O endereço de ppy é 6DFED8.
+
+s) &px = 6DFEE8
+O endereço de px é 6DFEE8.
+
+t) &py = 6DFEDC
+O endereço de py é 6DFEDC.
+
+u) *ppy = 6DFEE0
+ppy aponta para py, e o valor de py é o endereço de y, que é 6DFEE0.
+
+v) **ppy = 5.9
+**ppy é o valor de y, que é 5.9.

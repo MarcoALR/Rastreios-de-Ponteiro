@@ -1,0 +1,181 @@
+1º Bloco
+c
+char x;
+int i;
+x = 'c';
+i = 5;
+x = x + i;
+printf("%c", x);
+
+Rastreamento:
+1. `x = 'c';` → A variável `x` recebe o valor `'c'` (código ASCII 99).
+2. `i = 5;` → A variável `i` recebe o valor 5.
+3. `x = x + i;` → Soma-se 5 ao valor ASCII de `'c'` (99 + 5 = 104), então `x` passa a conter o caractere de código ASCII 104, que é `'h'`.
+4. `printf("%c", x);` → Imprime o caractere `'h'`.
+
+Saída esperada: `h`
+
+
+
+
+
+
+2º Bloco 
+c
+int a, *b, *c;
+a = 20;
+b = &a;
+c = b;
+a = (*b + *c) % 7;
+printf("%d", a);
+
+
+Rastreamento:
+1. `a = 20;` → A variável `a` recebe 20.
+2. `b = &a;` → `b` aponta para o endereço de `a`.
+3. `c = b;` → `c` também passa a apontar para o endereço de `a`.
+4. `a = (*b + *c) % 7;` → Como `*b` e `*c` são ambos 20, a operação será `(20 + 20) % 7 = 40 % 7 = 5`. Logo, `a` será 5.
+5. `printf("%d", a);` → Imprime 5.
+
+Saída esperada: `5`
+
+
+
+
+
+
+
+ 3º Bloco 
+c
+// Supondo endereço de x: 6356748
+// Supondo endereço de p: 6356744
+// Supondo endereço de pp: 6356740
+// O tamanho de cada inteiro é de 4 bytes
+// O tamanho de cada ponteiro é de 4 bytes
+int x, *p, **pp;
+x = 1;
+p = &x;
+pp = &p;
+for (int i = 0; i < 3; i++) 
+    x = *p + **pp;
+printf("%d", x);
+
+
+Rastreamento:
+
+1. `x = 1;` → A variável `x` recebe 1.
+2. `p = &x;` → O ponteiro `p` aponta para `x`.
+3. `pp = &p;` → `pp` aponta para `p`, que por sua vez aponta para `x`.
+4. Laço `for` (3 iterações):
+   - 1ª iteração: `x = 1 + 1 = 2`
+   - 2ª iteração: `x = 2 + 2 = 4`
+   - 3ª iteração: `x = 4 + 4 = 8`
+5. `printf("%d", x);` → Imprime 8.
+
+Saída esperada: `8`
+
+
+
+
+
+
+
+
+ 4º Bloco
+c
+int a[5] = {10, 20, 30, 40, 50};
+int *b, **c;
+b = a;
+c = &b;
+*b = *c + 3;
+printf("%d", *b);
+
+
+Rastreamento:
+1. O array `a` é inicializado como `{10, 20, 30, 40, 50}`.
+2. `b = a;` → `b` aponta para o primeiro elemento de `a` (valor 10).
+3. `c = &b;` → `c` aponta para o ponteiro `b`.
+4. `*b = *c + 3;` → Há um erro de tipo aqui, pois `*c` retorna um ponteiro para ponteiro, o que não pode ser somado a um inteiro. 
+   Supondo uma correção, isso resultaria em algo como `b = b + 3`, apontando `b` para o quarto elemento do array, que é `40`.
+5. `printf("%d", *b);` → Imprime 40.
+
+Saída esperada: `40`
+
+
+
+
+
+
+
+ 5º Bloco 
+ c
+// Supondo endereço de x: 6356748
+// Supondo endereço de p: 6356744
+// Supondo endereço de pp: 6356740
+// O tamanho de cada inteiro é de 4 bytes
+// O tamanho de cada ponteiro é de 4 bytes
+int x, *p, **pp;
+x = 5;
+p = &x;
+pp = &p;
+**pp = *p + 1;
+printf("%d", **pp);
+
+
+Rastreamento:
+1. `x = 5;` → `x` recebe 5.
+2. `p = &x;` → `p` aponta para `x`.
+3. `pp = &p;` → `pp` aponta para `p`, que por sua vez aponta para `x`.
+4. `**pp = *p + 1;` → A operação será `**pp = 5 + 1 = 6`, então `x` é atualizado para 6.
+5. `printf("%d", **pp);` → Imprime 6.
+
+Saída esperada: `6`
+
+
+
+
+
+
+
+6º Bloco
+
+c
+int a[5] = {10, 20, 30, 40, 50};
+int *b, **c;
+b = a + 3;
+b--;
+printf("%d", *b);
+
+
+Rastreamento:
+1. O array `a` é inicializado como `{10, 20, 30, 40, 50}`.
+2. `b = a + 3;` → `b` aponta para o elemento `a[3]`, que é 40.
+3. `b--;` → Agora `b` aponta para o elemento `a[2]`, que é 30.
+4. `printf("%d", *b);` → Imprime o valor de `a[2]`, que é 30.
+
+Saída esperada: `30`
+
+
+
+
+
+
+
+ 7º Bloco 
+c
+int i, *vet, *ptr;
+vet = (int*) malloc(sizeof(int)*10);
+for (i = 0; i < 10; i++)
+    vet[i] = i * 2 + 1;
+ptr = vet;
+printf("%d", *(ptr + 3));
+
+
+Rastreamento:
+1. `vet = (int*) malloc(sizeof(int)*10);` → Aloca um vetor de 10 inteiros.
+2. Laço `for`:
+   - Preenche o vetor `vet` com os valores ímpares: `vet[0] = 1`, `vet[1] = 3`, `vet[2] = 5`, `vet[3] = 7`, etc.
+3. `ptr = vet;` → `ptr` aponta para o início de `vet`.
+4. `printf("%d", *(ptr + 3));` → Imprime o valor do quarto elemento do vetor, que é `7`.
+
+Saída esperada: `7`

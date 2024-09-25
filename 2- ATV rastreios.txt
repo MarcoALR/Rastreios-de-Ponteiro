@@ -1,0 +1,17 @@
+
+
+
+
+
+
+ptr1 aponta para o início de vet e altera o valor de vet[0] para 445. Agora o vetor é [445, 3, 5, 7, 9, 11, 13, 15, 17, 19].
+
+ptr1 avança até vet[5] e altera seu valor para 654. O vetor se torna [445, 3, 5, 7, 9, 654, 13, 15, 17, 19].
+
+ptr2 aponta para vet[8], depois recua para vet[7] e altera seu valor para 186. O vetor agora é [445, 3, 5, 7, 9, 654, 13, 186, 17, 19].
+
+ptr3 inicialmente aponta para vet[9]. Ele tenta acessar o elemento após o final do vetor, causando comportamento indefinido ao atribuir valores fora dos limites do array.
+
+ptr2 aponta para vet[5] e altera seu valor para 204. Agora o vetor é [445, 3, 5, 7, 9, 204, 13, 186, 17, 19].
+
+o vetor final será impresso como [445, 3, 5, 7, 9, 204, 13, 186, 17, 19].
